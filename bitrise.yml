@@ -32,7 +32,11 @@ workflows:
         - variant: "$VARIANT"
     - cocoapods-install@2:
         inputs:
-        - is_cache_disabled: 'true'
+        - command: install
+        - podfile_path: ios/Podfile
+        - verbose: 'true'
+        - update_repo: 'true'
+        
     - xcode-archive@5:
         inputs:
         - project_path: "$BITRISE_PROJECT_PATH"
